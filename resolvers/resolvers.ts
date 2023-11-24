@@ -22,7 +22,7 @@ export const resolvers = {
   },
   Mutation: {
     filterBreed: async (_: unknown, args: { name: string; breed: string }): Promise<Pet[]> => {
-        const pets = await PetModel.find({breed: args.breed}).exec();
+        const pets = await PetModel.find( { breed: args.breed } ).exec();
         const mappedPets: Pet[] = pets.map((elem) => mapToPetObject(elem));
         return mappedPets;
       },
