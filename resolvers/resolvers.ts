@@ -32,7 +32,7 @@ export const resolvers = {
       return mapToPetObject(newPet);
     },
     deletePet: async (_: unknown, args: { id: string }): Promise<Pet> => {
-      const pet = await PetModel.findOne({_id: args.id}).exec();
+      const pet = await PetModel.findOneAndDelete({_id: args.id}).exec();
       if (!pet) {
         throw new GraphQLError(`No pet found with id ${args.id}`, {
           extensions: { code: "NOT_FOUND" },
