@@ -19,13 +19,13 @@ export const resolvers = {
       }
       return mapToPetObject(pet);
     },
-  },
-  Mutation: {
-    filterBreed: async (_: unknown, args: { name: string; breed: string }): Promise<Pet[]> => {
+    filterBreed: async (_: unknown, args: { breed: string }): Promise<Pet[]> => {
         const pets = await PetModel.find( { breed: args.breed } ).exec();
         const mappedPets: Pet[] = pets.map((elem) => mapToPetObject(elem));
         return mappedPets;
       },
+  },
+  Mutation: {
     addPet: async (_: unknown, args: { name: string; breed: string }): Promise<Pet> => {
       const newPet = new PetModel({ name: args.name, breed: args.breed });
       await newPet.save();

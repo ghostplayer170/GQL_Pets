@@ -9,6 +9,7 @@ export const typeDefs = `#graphql #Solo pone colores
     hello: String!
     pets: [Pet!]! # Todos elem Pet! debe ser Pet y []! dice que no puede devolver null
     pet(id: ID!): Pet!
+    filterBreed(breed: String!): [Pet!]!
   }
   type Mutation { # Endpoints
     addPet(id: ID!, name: String!, breed: String!): Pet!
