@@ -21,8 +21,8 @@ export const resolvers = {
     },
   },
   Mutation: {
-    addPet: async (_: unknown, args: { id: string; name: string; breed: string }): Promise<Pet> => {
-      const newPet = new PetModel({ id: args.id, name: args.name, breed: args.breed });
+    addPet: async (_: unknown, args: { name: string; breed: string }): Promise<Pet> => {
+      const newPet = new PetModel({ name: args.name, breed: args.breed });
       await newPet.save();
       return mapToPetObject(newPet);
     },
