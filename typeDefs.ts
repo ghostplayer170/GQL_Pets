@@ -12,7 +12,7 @@ export const typeDefs = `#graphql #Solo pone colores
     filterBreed(breed: String!): [Pet!]!
   }
   type Mutation { # Endpoints
-    addPet(id: ID!, name: String!, breed: String!): Pet!
+    addPet(name: String!, breed: String!): Pet!
     deletePet(id: ID!): Pet!
     updatePet(id: ID!, name: String, breed: String): Pet!
   }
